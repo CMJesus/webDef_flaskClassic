@@ -1,6 +1,7 @@
 from flask import Flask
+FICHERO = "data/movimientos.csv"
 
 app = Flask(__name__)
 
-from finanzas import views
+from . import views
 
