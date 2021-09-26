@@ -22,24 +22,10 @@ las funciones, es decir, todo el documento (asunto, "ámbitos").
 }
 
 * {
-    font-size: 0.75rem;
     background-color: var(--blanco);
     color: var(--negro);
     margin: 0;
     padding: 0;
-}
-
-table {
-    width: 100%;
-}
-
-.cabeceraTabla {
-    font-size: 25px;
-}
-
-td {
-    text-align: center;
-    font-style: italic;
 }
 
 footer {
@@ -52,7 +38,6 @@ header *, footer {
     color: var(--blanco);
     font-size: 0.5rem;
     padding: 2rem;
-
 }
 
 .container1 {
@@ -62,6 +47,11 @@ header *, footer {
 
 table.paper {
     width: 100%;
+}
+
+td {
+    text-align: center;
+    font-style: italic;
 }
 
 .campo-formulario label {
@@ -80,6 +70,13 @@ table.paper {
     margin-top: var(--separacion-defecto);
 }
 
-.campo-formulario input:not([type:radio]) {
+.campo-formulario input:not([type="radio"]) {
     width: 100%;
+}
+
+.error {
+    background-color: #ffaaaa;
+    color: darkred;
+    font-size: 2rem;
+    font-weight: bold;
 }

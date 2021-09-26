@@ -4,12 +4,15 @@
 
 {% block contenido_pagina %}
         <h1>Lista de Movimientos</h1>
+        {% if items | length == 0 %}
+            <p>Introduce el primer movimiento</p>
+        {% else %}
             <table class="paper">
                 <tr>
-                    <th class="cabeceraTabla">Fecha</th>
-                    <th class="cabeceraTabla">Concepto</th>
-                    <th class="cabeceraTabla">Ingreso / Gasto</th>
-                    <th class="cabeceraTabla">Cantidad</th>
+                    <th>Fecha</th>
+                    <th>Concepto</th>
+                    <th>Ingreso / Gasto</th>
+                    <th>Cantidad</th>
                 </tr>
                 {% for item in items %}
                 <tr>
@@ -22,4 +25,6 @@
                 </tr>
                 {% endfor %}
             </table>
+        {% endif %}
 {% endblock %}
+
