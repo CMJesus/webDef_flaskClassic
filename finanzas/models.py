@@ -5,7 +5,7 @@ class Movimiento():
     def __init__(self, fecha, concepto, es_ingreso, cantidad):
         self.fecha = fecha
         self.concepto = concepto
-        self.es_ingreso = ingreso_gastos
+        self.es_ingreso = ingreso_gasto
         self.cantidad = cantidad
 
 # Aquí arriba debe de haber validaciones. RaiseValueError
@@ -25,6 +25,7 @@ class ListaMovimientos():
     def escribir(self):
         if len(self.movmientos) == 0:
             return
+
         fichero = open(FICHERO, "w")
         #nombres_campo = ["fecha", "concepto", "ingreso_gasto", "cantidad"]
         nombres_campo = list(self.movimientos[0].keys())
@@ -34,3 +35,11 @@ class ListaMovimientos():
         for movimiento in self.movimientos:
             dwriter.writerow(movimiento)
         fichero.close()
+
+    # def anyadir(self, valor):
+    #     movimiento = {}
+    #     movimiento = ["fecha"] = valor ['fecha']
+    #     movimiento = ['concepto'] = valor ['concepto']
+    #     movimiento = ['ingreso_gasto'] = valor ['ingreso_gasto']
+    #     movimiento = ['cantidad'] = valor ['cantidad']
+    #     self.movimientos.append(movimiento)

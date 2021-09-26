@@ -1,47 +1,25 @@
-<!DOCTYPE html>
-<!--Aquí está el Lenguaje-->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ titulo }}</title>
-</head>
-<body>
-    <header>
-        <p>Página de INICIO de la WEB APP Finanzas Personales</p>
-        <h1>Balance de Ingresos y Gastos</h1>
-    </header>
-<section>
-    <nav>
-        <p>Inicio | Nuevo</p>
-    </nav>
-    <h1>Lista de Movimientos (ingresos/gastos)</h1>
-    <p>No hay movimientos</p>
-    
-    <table>
-        <tr>
-            <th>Fecha</th>
-            <th>Concepto</th>
-            <th>I/G</th>
-            <th>Cantidad</th>
-        </tr>
-        {% for item in items %}
-        <tr>
-            <td>{{ item.fecha }}</td>
-            <td>{{ item.concepto }}</td>
-            <td>{% if item.ingreso_gasto == 'I' %} Ingreso 
-                {% else %} Gasto 
-                {% endif %}</td>
-            <td>{{ item.cantidad }} €</td>
-        </tr>
-        {% endfor %}
+{% extends 'base.html' %}
 
-    </table>
+{% block titulo_pagina %} Lista de Movimientos {% endblock %}
 
-    </section>
-    
-    <br>
-    
-    <footer>© 2021 - Todos los derechos reservados.</footer>
-</body>
-</html>
+{% block contenido_pagina %}
+        <h1>Lista de Movimientos</h1>
+            <table class="paper">
+                <tr>
+                    <th class="cabeceraTabla">Fecha</th>
+                    <th class="cabeceraTabla">Concepto</th>
+                    <th class="cabeceraTabla">Ingreso / Gasto</th>
+                    <th class="cabeceraTabla">Cantidad</th>
+                </tr>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.fecha }}</td>
+                    <td>{{ item.concepto }}</td>
+                    <td>{% if item.ingreso_gasto == 'I' %} Ingreso 
+                        {% else %} Gasto 
+                        {% endif %}</td>
+                    <td>{{ item.cantidad }}€</td>
+                </tr>
+                {% endfor %}
+            </table>
+{% endblock %}

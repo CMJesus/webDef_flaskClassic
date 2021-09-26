@@ -1,5 +1,5 @@
 from finanzas import app
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 from finanzas.models import ListaMovimientos
 
 # Aquí comenzamos a establecer las rutas:
@@ -31,8 +31,21 @@ from finanzas.models import ListaMovimientos
 def inicio():
     lm = ListaMovimientos()
     lm.leer()
-    return render_template("index.html", titulo="[TÍTULO]", items=lm.movimientos)
+    print(lm.movimientos)
+    return render_template("index.html", items=lm.movimientos)
     # de la misma forma que hemos indicado título, y Jinja lo interpretará
     # a través del render_template, podríamos también
     # modificar el Lenguaje.
     # Especificamos la variable que será reconocible por Jinja.
+
+    @app.route("/nuevo", methods=['GET', 'POST'])
+    def nuevo():
+        if request.method == 'GET':
+            return render_template("nuevo.html")
+        else:
+            datos = request.form
+            lm = ListaMovimientos()
+            lm.leer()
+            lm.anyadir(datos)
+            lm.escribir()
+            return redirect(url_for("inicio"))

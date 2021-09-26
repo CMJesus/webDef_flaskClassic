@@ -1,8 +1,10 @@
-fecha, concepto, ingreso_gasto, cantidad
-
-01/01/2021,ingreso ordinario,I,750.0
+fecha,concepto,ingreso_gasto,cantidad
+01/01/2021,ingreso ordinario,I0,750.0
 05/01/2021,regalo,G,24.0
 05/02/2021,gasto ordinario,G,50.0
 01/03/2021,ingreso ordinario,I,750.0
 05/04/2021,gasto extraordinario,G,24.0
 05/05/2021,gasto ordinario,G,50.0
+03/03/2021,cumpleaños, G, 25.0
+04/04/2021,cumpleaños,G,100.0
+
